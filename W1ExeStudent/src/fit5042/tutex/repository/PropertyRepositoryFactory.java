@@ -20,6 +20,8 @@ import java.util.Properties;
 public class PropertyRepositoryFactory {
 
     private static final PropertyRepository REPOSITORY_INSTANCE = createInstance();
+    //Becomes PropertyRepository REPOSITORY_INSTANCE = (PropertyRepository)(new SimplePropertyRepositoryImpl()) ;
+    //Here dynamic binding happ
 
     /**
      * Create a property repository object based on the setting
@@ -33,6 +35,7 @@ public class PropertyRepositoryFactory {
 
             Properties repositoryProperties = new Properties();
             repositoryProperties.loadFromXML(new FileInputStream(new File("repository-settings.properties")));
+           // String ClassName = repositoryProperties.getProperty("repository.implementation.use"); // Gets SimplePropertyRepositoryImpl
             return (PropertyRepository) Class.forName(repositoryProperties.getProperty("repository.implementation.use")).newInstance();
         } catch (IOException | ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
             System.out.println(ex.getMessage());

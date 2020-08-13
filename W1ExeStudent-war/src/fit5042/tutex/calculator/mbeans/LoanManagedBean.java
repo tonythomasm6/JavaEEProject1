@@ -7,9 +7,11 @@ import fit5042.tutex.calculator.MonthlyPaymentCalculator;
 import fit5042.tutex.calculator.navigation.Navigation;
 import fit5042.tutex.repository.entities.Loan;
 @ManagedBean
+//Author Tony Thomas 31296149
+
 @SessionScoped
 public class LoanManagedBean implements Serializable {
- @EJB
+@EJB
  private MonthlyPaymentCalculator calculator;
  private Loan loan;
  public LoanManagedBean() {
