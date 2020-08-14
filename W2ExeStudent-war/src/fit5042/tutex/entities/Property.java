@@ -14,9 +14,9 @@ import javax.inject.Named;
 @Named(value = "property")
 public class Property implements Serializable {
 	private int propertyId;
-	private double size;
-	private int numberOfBedrooms;
-	private double price;
+	private Double size;
+	private Integer numberOfBedrooms;
+	private Double price;
 
 	private Address address;
 	private ContactPerson contactPerson;
@@ -38,7 +38,7 @@ public class Property implements Serializable {
 	}
 
 	// non-defaut constructor
-	public Property(int propertyId, Address address, int numberOfBedrooms, double size, double price,
+	public Property(int propertyId, Address address, Integer numberOfBedrooms, Double size, Double price,
 			ContactPerson contactPerson, Set<String> tags) {
 		this.propertyId = propertyId;
 		this.address = address;
@@ -133,27 +133,27 @@ public class Property implements Serializable {
 		this.address = address;
 	}
 
-	public double getSize() {
+	public Double getSize() {
 		return size;
 	}
 
-	public void setSize(double size) {
+	public void setSize(Double size) {
 		this.size = size;
 	}
 
-	public int getNumberOfBedrooms() {
+	public Integer getNumberOfBedrooms() {
 		return numberOfBedrooms;
 	}
 
-	public void setNumberOfBedrooms(int numberOfBedrooms) {
+	public void setNumberOfBedrooms(Integer numberOfBedrooms) {
 		this.numberOfBedrooms = numberOfBedrooms;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 

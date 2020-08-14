@@ -38,7 +38,6 @@
                             <h:message for="streetNumber" class="#{!streetNumber.valid ? 'label label-warning' : 'none'}" />
                         </td>
                     </tr>
-
 					<!-- Please add the inputText field for streetAddress
 							1. It is a required field
 							2. The required message should be displayed as "Please enter the street address!"
@@ -50,15 +49,14 @@
                     <Tr><td><h:outputLabel value="streetAddress" for="streetAddress"/></td><td>
                     <h:inputText id="streetAddress" value="#{property.streetAddress}" title="streetAddress" required="true" 
                     	requiredMessage="Please enter the street address"  
-                    	pt:placeholder="Dandenong Rd" >
+                    	pt:placeholder="Dandenong Rd" > <!-- Giving placeholder as Dandd -->
                     </h:inputText>
+                    <br/>
+                    <!--  Error message handling with class -->
+                    <h:message for="streetAddress" class="#{!streetNumber.valid ? 'label label-warning' : 'none'}" />
+             
                     </td></Tr>
-                    
-                    
-                    
-                    
-                    
-                    
+             
                     
                     <!-- Finish of the input field code -->
                     
@@ -111,22 +109,19 @@
 					-->
 					
                     <!-- Start of the input field code -->
-                    
-                   
+                              
                     
                     <Tr><td><h:outputLabel value="size" for="size"/></td><td>
-                    <h:inputText id="size" value="#{property.size}" title="size"  required="true" requiredMessage="Please enter the size" 
-                    validatorMessage="Size should be greater than 1"  convertMessage="Please enter a positive number" pt:placeholder="530000.59">
-                    <f:validateLongRange minimum="1"/>
-                    <f:convertNumber positiveOnly="true"/>
-                    </h:inputText>
+                  	  <h:inputText id="size" value="#{property.size}" title="size"  required="true" requiredMessage="Please enter the size" 
+                   		 validatorMessage="Size should be greater than 1"  convertMessage="Please enter a positive number" pt:placeholder="530000.59">
+                    		<f:validateLongRange minimum="1"/>
+                    		<f:convertNumber integerOnly="true"/>
+                    	</h:inputText>
+                    <br />
+                    <!-- Error message handling -->
+                    <h:message for="size" class="#{!streetNumber.valid ? 'label label-warning' : 'none'}" />
                     </td></Tr>
-                    
-                    
-                    
-                    
-                    
-                    
+                  
                     <!-- Finish of the input field code -->
                     
                     <tr>
@@ -134,7 +129,7 @@
                             <h:outputLabel value="NumberOfBedrooms:" for="numberOfBedrooms"/>
                         </td>
                         <td>
-                            <h:inputText id="numberOfBedrooms" value="#{property.numberOfBedrooms}" title="NumberOfBedrooms" required="true" requiredMessage="Please enter the number of bedrooms!" validatorMessage="The number of bedrooms must be larger than or equal to 0" converterMessage="Please enter a number" pt:placeholder="4">
+                            <h:inputText id="numberOfBedrooms" value="#{property.numberOfBedrooms}" title="NumberOfBedrooms" required="true" requiredMessage="Please enter the number of bedrooms!" validatorMessage="The number of bedrooms must be larger than or equal to 0" converterMessage="Please enter a number" pt:placeholder='4'>
                         		<f:convertNumber integerOnly="true"/>
                         		<f:validateLongRange minimum="0"/> 
                            	</h:inputText>
