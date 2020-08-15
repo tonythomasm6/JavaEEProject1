@@ -14,8 +14,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author Messom
- * @author Guan
+ * @author Tony
  */
 @Named("propertyController")
 @RequestScoped

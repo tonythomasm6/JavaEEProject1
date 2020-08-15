@@ -21,8 +21,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author messomc
- * @author guan
+ * @author Tony
  */
 @ManagedBean(name = "propertyManagedBean")
 @SessionScoped

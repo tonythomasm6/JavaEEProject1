@@ -8,7 +8,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author Guan
+ * @author Tony
  */
 @RequestScoped
 @Named(value = "property")

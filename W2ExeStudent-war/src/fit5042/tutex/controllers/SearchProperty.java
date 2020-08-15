@@ -16,7 +16,7 @@ import fit5042.tutex.entities.Property;
 
 /**
  *
- * @author Guan
+ * @author Tony
  */
 @RequestScoped
 @Named("searchProperty")

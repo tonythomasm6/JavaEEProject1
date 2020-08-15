@@ -15,7 +15,7 @@ import javax.faces.context.FacesContext;
  * The class is a demonstration of how the application scope works. You can
  * change this scope.
  *
- * @author Guan
+ * @author Tony
  */
 
 @Named("propertyApplication")

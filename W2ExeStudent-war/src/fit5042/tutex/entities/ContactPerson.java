@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Eddie
+ * @author Tony
  */
 @RequestScoped
 @Named(value = "contactperson")

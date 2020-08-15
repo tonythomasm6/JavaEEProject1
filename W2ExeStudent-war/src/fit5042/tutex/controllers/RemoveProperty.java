@@ -19,7 +19,7 @@ import fit5042.tutex.mbeans.PropertyManagedBean;
 
 /**
  *
- * @author Guan
+ * @author Tony
  */
 @RequestScoped
 @Named("removeProperty")
