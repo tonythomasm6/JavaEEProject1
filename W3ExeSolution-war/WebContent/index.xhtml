@@ -129,8 +129,9 @@
                     <tr>
                         <td width="180">Principle(click on property):</td>
                         <td width="320">
-                            <h:inputText id="principle" value="#{loanManagedBean.loan.principle}" converterMessage="Enter valid Principle Amount" >
+                            <h:inputText id="principle" value="#{loanManagedBean.loan.principle}" validatorMessage = "Principle amount should be greater than 1000" converterMessage="Enter valid Principle Amount" >
                                 <f:converter converterId="javax.faces.Double" />
+                                <f:validateLongRange minimum="1000" />
                             </h:inputText>
 							<br/>
 							<h:message class="label label-warning" for="principle"/>
