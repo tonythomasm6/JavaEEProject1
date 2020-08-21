@@ -47,10 +47,10 @@ public class ComparePropertySessionBean implements CompareProperty {
 		int bestRoom = -100;
 		for(Property p : compareList) {
 			if(lowPrice == -1) {
-				lowPrice = p.getPrice();
+				lowPrice = p.getPrice()/p.getNumberOfBedrooms();
 				bestRoom = p.getPropertyId();
-			}else if(lowPrice > p.getPrice()) {
-				lowPrice = p.getPrice();
+			}else if(lowPrice > p.getPrice()/p.getNumberOfBedrooms()) {
+				lowPrice = p.getPrice()/p.getNumberOfBedrooms();
 				bestRoom = p.getPropertyId();
 			}
 		}return bestRoom;
