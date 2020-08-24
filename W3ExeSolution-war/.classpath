@@ -15,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/W3ExeSolution-common"/>
 	<classpathentry kind="lib" path="C:/Users/tonym/Documents/Monash/Software/Libraries/javaee-api-7.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FIT5042"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
