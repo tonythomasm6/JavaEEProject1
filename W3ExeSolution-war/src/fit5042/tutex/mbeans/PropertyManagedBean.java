@@ -39,7 +39,16 @@ public class PropertyManagedBean implements Serializable {
 	
     private int bestPerRoom;
     private int selectedId;
-    private ArrayList<Integer> comparePropId = new ArrayList<Integer>(); // List of property ids to compare
+    private String errorMsg;
+    public String getErrorMsg() {
+		return errorMsg;
+	}
+
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
+
+	private ArrayList<Integer> comparePropId = new ArrayList<Integer>(); // List of property ids to compare
     
     public ArrayList<Integer> getComparePropId() {
 		return comparePropId;
@@ -196,14 +205,17 @@ public class PropertyManagedBean implements Serializable {
     	Property p = searchPropertyById(selectedId);
     	if(p == null) 
     	{
-    		FacesContext.getCurrentInstance().addMessage("MyForm:bestPerRoom", new FacesMessage("Enter valid Property Id to compare"));
+    		this.errorMsg = "Enter valid Property Id to compare";
+    		FacesContext.getCurrentInstance().addMessage("bestPerRoom:bestPerRoom", new FacesMessage("Enter valid Property Id to compare"));
     	}
     	else if(comparePropId.contains(selectedId))
     	{
-    		FacesContext.getCurrentInstance().addMessage("MyForm:bestPerRoom", new FacesMessage("Enter different Property Id to add"));
+    		this.errorMsg = "Enter different Property Id to add";
+    		FacesContext.getCurrentInstance().addMessage("bestPerRoom:bestPerRoom", new FacesMessage("Enter different Property Id to add"));
     	}
     	else 
     	{
+    		this.errorMsg = "";
 	        compareProperty.addProperty(searchPropertyById(selectedId));
 	        selectedId = 0;
     	}
@@ -213,10 +225,12 @@ public class PropertyManagedBean implements Serializable {
     public void removePropertyID() {
     	if(!comparePropId.contains(selectedId))
     	{
-    		FacesContext.getCurrentInstance().addMessage("MyForm:bestPerRoom", new FacesMessage("Enter different Property Id to remove"));
+    		errorMsg = "Enter different Property Id to remove";
+    		FacesContext.getCurrentInstance().addMessage("bestPerRoom:bestPerRoom", new FacesMessage("Enter different Property Id to remove"));
     	}
     	else
     	{
+    		this.errorMsg="";
 	        compareProperty.removeProperty(searchPropertyById(selectedId));
 	        selectedId = 0;
 	        comparePropId = compareProperty.getComparePropertyList();
