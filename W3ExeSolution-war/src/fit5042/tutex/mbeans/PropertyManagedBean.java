@@ -215,7 +215,7 @@ public class PropertyManagedBean implements Serializable {
     	}
     	else 
     	{
-    		this.errorMsg = "";
+    		this.errorMsg = "Property Added Successfully !!!";
 	        compareProperty.addProperty(searchPropertyById(selectedId));
 	        selectedId = 0;
     	}
@@ -230,7 +230,7 @@ public class PropertyManagedBean implements Serializable {
     	}
     	else
     	{
-    		this.errorMsg="";
+    		this.errorMsg="Property Removed Successfully !!!";
 	        compareProperty.removeProperty(searchPropertyById(selectedId));
 	        selectedId = 0;
 	        comparePropId = compareProperty.getComparePropertyList();
@@ -240,6 +240,7 @@ public class PropertyManagedBean implements Serializable {
     public String bestPerRoom()
     {
         //bestPerRoom = compareProperty.bestPerRoom();
+    	this.errorMsg = "";
         bestPerRoom = compareProperty.getBestPerRoom();
         return "index";
     }

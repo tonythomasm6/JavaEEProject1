@@ -107,22 +107,26 @@
                         <f:param name="propertyID" value="#{status.index + 1}"/>
                     </h:commandButton>
                 </div>
+                
+                </h:form>
+                <h:form>
+                
                 <div>
                     <br />
                     <hr style="border-color: lightgrey;" />
-                    <table>
+                    <table >
                         <tr>
                             <td width="500">
                                 <b>Loan Monthly Payment Calculation</b>
                             </td>
                            
                         </tr>
-                    </table>
+                    </table >
                 </div>
 
                     <br />
                     <br />
-                <table>
+                <table class="table table-bordered table-striped">
 
                     <tr>
                         <td width="180">Principle(click on property):</td>
@@ -136,13 +140,7 @@
 						
 							</td>
                       
-                        <td>
-                            <h:inputText id="selectedId" value="#{propertyManagedBean.selectedId}"  ></h:inputText>
-                        </td>
-                        <td><h:outputText value="Selected property IDs :  " 
-							rendered="#{propertyManagedBean.comparePropId.size()>0?true:false}"/></td>
-						<td><h:outputText value="#{propertyManagedBean.comparePropId}"
-							rendered="#{propertyManagedBean.comparePropId.size()>0?true:false}"/></td>
+                        
 
                     </tr>
                     <tr>
@@ -161,9 +159,7 @@
 							<h:message class="label label-warning" for="interestRate"/>
 							</td>
 							
-                        <td>
-
-                        </td>
+                     
                         
                     </tr>
                     <tr>
@@ -181,22 +177,20 @@
                     </tr>
                     <tr>
                         <td>Monthly Payment: </td>
-                        <td colspan="3">
+                        <td>
                             <h:outputLabel id="monthlyPayment" value="#{loanManagedBean.loan.monthlyPayment}">
                                 <f:convertNumber currencyCode="AUD" type="currency" />
                             </h:outputLabel>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4">
-                            <h:commandButton id="calculate" value="Calculate" action="#{loanManagedBean.calculate()}" />
+                        <td >
+                            <h:commandButton class="btn btn-primary" id="calculate" value="Calculate" action="#{loanManagedBean.calculate()}" />
                         </td>
-
+						<td></td>
                     </tr>
-                    <tr><td colspan="2"><h:message style="color:red" for="calculate"/></td>
-                    <td colspan="2"></td></tr>
-                    <tr></tr>
-                    
+                    <tr><td ><h:message style="color:red" for="calculate"/></td>
+                    </tr>
                 </table>
 
 
@@ -204,26 +198,26 @@
             
             
   <!-- Compare property form -->          
-            
+            <br/>
+			<br/>
+			<br/>
             <h:form id="comparePropertyForm">
-            <table>
-            <tr><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td></tr>
+            <table class="table table-bordered table-striped">
+            
             <tr><td><b>Compare Properties for best price</b></td></tr>
             <tr><td>
                     Selected property id to compare:
-                </td>
-                <td>
+                
                      <h:inputText id="selectedId" value="#{propertyManagedBean.selectedId}"  ></h:inputText>
                 </td>
             </tr>
             <tr>
 	            <td>
-	             	<h:commandButton id="addCompare" value="AddCompare" action="#{propertyManagedBean.addPropertyID()}" >
+	             	<h:commandButton class="btn btn-primary" id="addCompare" value="AddCompare" action="#{propertyManagedBean.addPropertyID()}" >
 	             		 <f:ajax execute="@form" render="outputDiv errorMsg" />  <!-- Passing all of current form in ajax request -->
 	                </h:commandButton>
 	             &nbsp; &nbsp;
-	                <h:commandButton id="removeCompare" value="RemoveCompare" action="#{propertyManagedBean.removePropertyID()}" >
+	                <h:commandButton class="btn btn-primary" id="removeCompare" value="RemoveCompare" action="#{propertyManagedBean.removePropertyID()}" >
 	             		<f:ajax execute="comparePropertyForm" render="outputDiv errorMsg" /> <!--  Passing the current form by name for ajax req -->
 	                </h:commandButton>
 	              </td>  
@@ -231,7 +225,7 @@
              
              <tr>
              	<td>
-                     <h:commandButton id="bestPerRoom" value="BestPerRoom" action="#{propertyManagedBean.bestPerRoom()}" />&nbsp; &nbsp;
+                     <h:commandButton class = "btn btn-primary" id="bestPerRoom" value="BestPerRoom" action="#{propertyManagedBean.bestPerRoom()}" />&nbsp; &nbsp;
                       <h:outputLabel id="bestPropertyId" value="#{propertyManagedBean.bestPerRoom}"  />
                         </td>
              </tr>
@@ -240,8 +234,7 @@
               <td>
             		<h:outputText  value="Selected property IDs :  " 
 							rendered="#{propertyManagedBean.comparePropId.size()>0?true:false}"/>
-			  </td>
-			  <td >
+			  
 					<h:outputText  id="outputDiv" value="#{propertyManagedBean.comparePropId}" rendered="true"/>
 							<!-- <h:message  style="color:red" for="bestPerRoom"/> -->
 			  </td>
