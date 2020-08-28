@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>W3EE</name>
+	<name>W4EE</name>
 	<comment></comment>
 	<projects>
-		<project>W3ExeSolution-common</project>
-		<project>W3ExeSolution-ejb</project>
-		<project>W3ExeSolution-war</project>
+		<project>W4ExeStart-common</project>
+		<project>W4ExeStart-ejb</project>
+		<project>W4ExeStart-war</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
