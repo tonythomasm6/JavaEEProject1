@@ -18,7 +18,7 @@
             </div>
 
             <h:form id="MyForm">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped" >
                     <!-- For each property in properties ArrayList... -->
                     <tr>
                             <td>
@@ -36,7 +36,7 @@
 
                     <ui:repeat id="Myrepeat" value="#{propertyApplication.properties}"  var="property" varStatus="status">
 
-                        <tr onclick="document.getElementById('MyForm:principle').value = document.getElementById('MyForm:Myrepeat:#{status.index}:outPrice').textContent">
+                        <tr onclick="document.getElementById('MyForm:principle').value = document.getElementById('MyForm:Myrepeat:#{status.index}:outPrice').textContent" >
                             <td>
                                 <h:outputText value="#{propertyApplication.properties.get(status.index).propertyId}" id="propertyID" />
 
@@ -80,17 +80,41 @@
                         <f:param name="propertyID" value="#{status.index + 1}"/>
                     </h:commandButton>
                 </div>
+				
+				</h:form>
+				<h:form>
+				
                 <div>
-                    <h:inputText value="#{searchProperty.searchByInt}" id="searchById" required="true" onchange ="if (document.getElementById('MyForm:searchById').value.trim() == '') {document.getElementById('MyForm:searchById').value = 0;} "   />
-                    <h:commandButton id="searchId" value="Search by Id" action="#{searchProperty.searchPropertyById(searchProperty.searchByInt)}" class="btn btn-primary" >
-                        <f:param name="propertyID" value="#{status.index + 1}"/>
-                    </h:commandButton>
+				
+				<h:outputLabel value="Enter property ID to search :   "></h:outputLabel>
+				 
+                    <h:inputText value="#{searchProperty.searchByInt}" id="searchById" required="true" 
+                    onchange ="if (document.getElementById('MyForm:searchById').value.trim() == '') {document.getElementById('MyForm:searchById').value = 0;} "   >
+					
+					<f:ajax event="keyup" listener="#{searchProperty.searchPropertyById(searchProperty.searchByInt)}" execute="searchById" render="MyForm"/>
+					
+					</h:inputText>
+					
+                    <!-- <h:commandButton id="searchId" value="Search by Id" action="#{searchProperty.searchPropertyById(searchProperty.searchByInt)}" class="btn btn-primary" >
+                        <f:param name="propertyID" value="#{status.index + 1}"/>  
+                        
+                        
+                         
+                    </h:commandButton>-->
                 </div>
                 <div>
-                    <h:inputText value="#{searchProperty.searchByDouble}" id="searchByBudget" required="true" onchange="if (document.getElementById('MyForm:searchByBudget').value.trim() == '') {document.getElementById('MyForm:searchByBudget').value = 0.0;} " />
-                    <h:commandButton id="searchBudget" value="Search by Budget" action="#{searchProperty.searchPropertyByBudget(searchProperty.searchByDouble)}" class="btn btn-primary" >
+				
+				<h:outputLabel value="Enter property Budget to search :   "></h:outputLabel>
+				
+                    <h:inputText value="#{searchProperty.searchByDouble}" id="searchByBudget" required="true" onchange="if (document.getElementById('MyForm:searchByBudget').value.trim() == '') {document.getElementById('MyForm:searchByBudget').value = 0.0;} " >
+					<f:ajax event="keyup" listener="#{searchProperty.searchPropertyByBudget(searchProperty.searchByDouble)}" execute="searchByBudget" render="MyForm"/>
+					
+					</h:inputText>
+					
+					
+                    <!--<h:commandButton id="searchBudget" value="Search by Budget" action="#{searchProperty.searchPropertyByBudget(searchProperty.searchByDouble)}" class="btn btn-primary" >
                         <f:param name="propertyID" value="#{status.index + 1}"/>
-                    </h:commandButton>
+                    </h:commandButton> -->
                 </div>
 
 
