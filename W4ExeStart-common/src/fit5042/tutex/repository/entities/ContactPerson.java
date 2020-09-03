@@ -72,8 +72,7 @@ public class ContactPerson implements Serializable {
     }
 
     //Tony enforce the relationship between a property and its contact person using annotation(s). Each property has one and only one contact person. Each contact person might be responsible for zero to many properties
-   @OneToMany(cascade=CascadeType.PERSIST)
-   @JoinColumn(name="Propety_ID_FK")
+    @OneToMany(mappedBy = "contactPerson")
     public Set<Property> getProperties() {
         return properties;
     }

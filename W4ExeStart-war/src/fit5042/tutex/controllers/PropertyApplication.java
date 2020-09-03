@@ -1,9 +1,13 @@
 package fit5042.tutex.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.enterprise.context.ApplicationScoped;
 import fit5042.tutex.mbeans.PropertyManagedBean;
 import javax.inject.Named;
+
+import fit5042.tutex.repository.entities.ContactPerson;
 import fit5042.tutex.repository.entities.Property;
 import javax.el.ELContext;
 import javax.faces.bean.ManagedProperty;
@@ -25,6 +29,8 @@ public class PropertyApplication {
     PropertyManagedBean propertyManagedBean;
 
     private ArrayList<Property> properties;
+    
+    private List<ContactPerson> contactPersons;
 
     private boolean showForm = true;
 
@@ -43,6 +49,9 @@ public class PropertyApplication {
 
         //get properties from db 
         updatePropertyList();
+        
+        //To get contact persons from db
+        updateContactList();
     }
 
     public ArrayList<Property> getProperties() {
@@ -72,8 +81,31 @@ public class PropertyApplication {
             setProperties(properties);
         }
     }
+    
+    public void updateContactList() throws Exception {
+    	if (contactPersons !=null && contactPersons.size() > 0) {
+    		
+    	}
+    	else {
+    		contactPersons = new ArrayList<ContactPerson>();
+    		for(ContactPerson c : propertyManagedBean.getAllContactPeople())
+    		{
+    			contactPersons.add(c);
+    		}
+    		setContactPersons(contactPersons);
+    	}
+    }
+    
 
-    public void searchPropertyById(int propertyId) {
+    public List<ContactPerson> getContactPersons() {
+		return contactPersons;
+	}
+
+	public void setContactPersons(List<ContactPerson> contactPersons) {
+		this.contactPersons = contactPersons;
+	}
+
+	public void searchPropertyById(int propertyId) {
         properties.clear();
 
         properties.add(propertyManagedBean.searchPropertyById(propertyId));

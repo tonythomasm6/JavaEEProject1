@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -102,8 +103,7 @@ public class Property implements Serializable {
     }
 
     //Tony enforce the relationship between a property and its contact person using annotation(s). Each property has one and only one contact person. Each contact person might be responsible for zero to many properties
-   @OneToOne(cascade=CascadeType.PERSIST)
-   @JoinColumn
+    @ManyToOne
     public ContactPerson getContactPerson() {
         return contactPerson;
     }
@@ -113,7 +113,7 @@ public class Property implements Serializable {
     }
 
     //Tony annotate the attribute tags in Property class so that the tags of a property will be stored in a table called TAG. The tags of a property should be eagerly fetched and the value of each tag must be stored in a column VALUE in the TAG table
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
    @CollectionTable(name="TAG")
     public Set<String> getTags() {
         return tags;
@@ -128,3 +128,5 @@ public class Property implements Serializable {
         return "Property{" + "propertyId=" + propertyId + ", size=" + size + ", numberOfBedrooms=" + numberOfBedrooms + ", price=" + price + ", address=" + address + ", contactPerson=" + contactPerson + ", tags=" + tags + '}';
     }
 }
+
+//
