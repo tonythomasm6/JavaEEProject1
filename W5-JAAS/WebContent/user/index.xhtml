@@ -4,11 +4,26 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head>
- <title>User Area</title>
-</h:head>
-<h:body>
- <h1>User Area</h1>
- <p>Welcome to the secured User area.</p>
-</h:body> 
+<h:head></h:head> 
+<body> 
+
+
+<h:form>
+
+	<h:inputText id="fname" value="#{employeeBean.fname}">
+	</h:inputText>
+	
+	<br />
+	
+	<h:inputText id="lname" value="#{employeeBean.lname}">
+	</h:inputText>
+	
+	<br/>
+	
+	<h:commandButton action="#{employeeBean.callMethod()}" value="Submit"></h:commandButton>
+	
+</h:form>
+
+
+</body> 
 </html>
